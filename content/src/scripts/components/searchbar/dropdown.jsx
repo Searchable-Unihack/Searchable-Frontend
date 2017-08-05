@@ -28,15 +28,10 @@ class Dropdown extends Component {
     super(props);
     console.log(props);
     this.props.page;
-    this.state = {videos: [
-      {timestamp: 10.10, 'context': 'this is some context'},
-      {timestamp: 2000.30, 'context': 'this is another context'}
-    ]};
-
    }
 
 
-  render() {    
+  render() {
     var content;
     if (this.props.content) {
     content = this.props.content.slice(0, 5);
@@ -49,7 +44,6 @@ class Dropdown extends Component {
       return(
         <Wrapper1>
               {content.map((suggestion, index) =>
-              // Correct! Key should be specified inside the array.
               <VideoRow key={index.toString()}
                         context={suggestion._highlightResult.alternatives[0].transcript.value}
                         timestamp={suggestion.alternatives[0].timestamps[0][1]} />
@@ -60,7 +54,6 @@ class Dropdown extends Component {
       return (
         <Wrapper2>
           {content.map((suggestion, index) =>
-          // Correct! Key should be specified inside the array.
           <VideoRow key={index.toString()}
                     context={suggestion._highlightResult.alternatives[0].transcript.value}
                     timestamp={suggestion.alternatives[0].timestamps[0][1]} />
