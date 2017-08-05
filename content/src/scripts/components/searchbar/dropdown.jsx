@@ -45,8 +45,10 @@ class Dropdown extends Component {
         <Wrapper1>
               {content.map((suggestion, index) =>
               <VideoRow key={index.toString()}
+                        id={suggestion.id}
                         context={suggestion._highlightResult.text.value}
-                        timestamp={suggestion.time} />
+                        timestamp={suggestion.time}
+                        page={this.props.page}/>
             )}
         </Wrapper1>
       )
@@ -55,8 +57,10 @@ class Dropdown extends Component {
         <Wrapper2>
           {content.map((suggestion, index) =>
           <VideoRow key={index.toString()}
+                    id={suggestion.id}
                     context={suggestion._highlightResult.text.value}
-                    timestamp={suggestion.time} />
+                    timestamp={suggestion.time}
+                    page={this.props.page}/>
         )}
         </Wrapper2>
       );
