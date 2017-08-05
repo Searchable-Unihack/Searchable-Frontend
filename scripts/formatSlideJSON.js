@@ -4,14 +4,14 @@ var fs                  = require('fs')
 var file_list           = null;
 var lecture_slide_array = [];
 
-readDirFiles.list('../lecture_data/lecture-04', function (err, filenames) {
+readDirFiles.list('../lecture_data/lecture-01', function (err, filenames) {
   if (err) return console.dir(err);
   file_list = filenames;
 
   for (var i=1; i<file_list.length; i++)
   {
     file_list[i] = file_list[i].slice(27);
-    var text = fs.readFileSync("../lecture_data/lecture-04/" + file_list[i], 'utf8');
+    var text = fs.readFileSync("../lecture_data/lecture-01/" + file_list[i], 'utf8');
     var timestamp = Number(file_list[i].slice(12,-5)) * 60;
 
     var response = formatSlideJSON(JSON.parse(text),timestamp);
