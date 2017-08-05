@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const mappings = {

@@ -6,17 +6,6 @@ import algoliasearch from 'algoliasearch';
 const client = algoliasearch("ITN7Y46FJT", "0f49b009fc84f5df9532d7930fcc0d80");
 const index = client.initIndex('searchable');
 
-
-const Title = styled.h1`
-	font-size: 1.5em;
-	text-align: center;
-  background: -webkit-linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-text-stroke-width: 0.15px;
-  -webkit-text-stroke-color: black;
-`;
-
 const InputHome = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: "Proxima Nova";
@@ -99,9 +88,6 @@ class App extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-              {/* <Title>
-                Searchable
-              </Title> */}
               <InputHome placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
             </label>
             {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
@@ -113,9 +99,7 @@ class App extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-              {/* <Title>
-                Searchable
-              </Title> */}
+
               <InputVideo placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
             </label>
             {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
