@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import Dropdown from '../searchbar/dropdown'
 import styled from 'styled-components';
 import algoliasearch from 'algoliasearch';
@@ -76,11 +75,9 @@ class App extends Component {
   }
 
   componentDidMount() {
-		console.log('dointin');
 		var timeToSkipTo = localStorage.getItem('time');
 		localStorage.removeItem('time');
 		if (timeToSkipTo) {
-			console.log(timeToSkipTo)
 			this.skipToTime(timeToSkipTo);
 		}
   }
@@ -121,10 +118,4 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    ...state
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
