@@ -51,8 +51,8 @@ class Dropdown extends Component {
               {content.map((suggestion, index) =>
               // Correct! Key should be specified inside the array.
               <VideoRow key={index.toString()}
-                        context={suggestion._highlightResult.alternatives[0].transcript.value}
-                        timestamp={suggestion.alternatives[0].timestamps[0][1]} />
+                        context={suggestion._highlightResult.text.value}
+                        timestamp={suggestion.time} />
             )}
         </Wrapper1>
       )
@@ -62,8 +62,8 @@ class Dropdown extends Component {
           {content.map((suggestion, index) =>
           // Correct! Key should be specified inside the array.
           <VideoRow key={index.toString()}
-                    context={suggestion._highlightResult.alternatives[0].transcript.value}
-                    timestamp={suggestion.alternatives[0].timestamps[0][1]} />
+                    context={suggestion._highlightResult.text.value}
+                    timestamp={suggestion.time} />
         )}
         </Wrapper2>
       );
