@@ -45,6 +45,11 @@ gulp.task('popup-html', ['clean'], () => {
     .pipe(gulp.dest('./build'))
 });
 
+gulp.task('copy-icons', ['clean'], () => {
+   return gulp.src('searchable.png')
+   .pipe(gulp.dest('./build'))
+});
+
 gulp.task('copy-manifest', ['clean'], () => {
   return gulp.src('manifest.json')
     .pipe(gulp.dest('./build'));
@@ -54,7 +59,7 @@ gulp.task('clean', (cb) => {
   rimraf('./build', cb);
 });
 
-gulp.task('build', ['copy-manifest', 'popup-js', 'popup-html', 'event-js', 'content-js']);
+gulp.task('build', ['copy-manifest', 'copy-icons', 'popup-js', 'popup-html', 'event-js', 'content-js']);
 
 gulp.task('watch', ['default'], () => {
   gulp.watch('popup/**/*', ['build']);

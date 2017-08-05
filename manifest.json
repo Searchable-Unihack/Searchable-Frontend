@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "RCR",
-  "description": "Searchable-Frontend",
+  "name": "Searchable",
+  "description": "Make Lectures Searchable",
   "version": "0.0.0.1",
   "background": {
     "scripts": [
@@ -10,9 +10,12 @@
     "persistent": true
   },
   "browser_action": {
-    "default_title": "Searchable Stuff",
+    "default_title": "Searchable",
     "default_popup": "popup.html"
   },
+  "icons": { "16": "searchable.png",
+            "48": "searchable.png",
+            "128": "searchable.png" },
   "content_scripts": [
     {
       "matches": ["https://echo360.org.au/*"],
