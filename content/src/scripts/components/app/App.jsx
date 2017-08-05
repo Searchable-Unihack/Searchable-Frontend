@@ -50,7 +50,7 @@ var Input2 = styled.input`
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: '', content: '' };
+    this.state = { value: '', content: '', showDropdown: false };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateContent = this.updateContent.bind(this);
@@ -67,7 +67,8 @@ class App extends Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});
+    this.setState({showDropdown: true});
+    index.search(event.target.value, (err, content) => { this.updateContent(err, content) });
   }
 
   handleSubmit(event) {
@@ -98,7 +99,7 @@ class App extends Component {
               <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
             </label>
-            <Dropdown content={this.state.content} page={this.props.page} />
+            { this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} /> }
           </form>
         </div>
       );
@@ -110,7 +111,8 @@ class App extends Component {
               <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
             </label>
-            <Dropdown content={this.state.content} page={this.props.page} />
+            { this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} /> }
+            
           </form>
         </div>
       );
