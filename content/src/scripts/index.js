@@ -8,6 +8,7 @@ import App from './components/app/App';
 
 const proxyStore = new Store({portName: 'example'});
 
+document.getElementsByClassName('courseName')[0].style.display = 'none';
 const anchor = document.createElement('div');
 anchor.id = 'rcr-anchor';
 
