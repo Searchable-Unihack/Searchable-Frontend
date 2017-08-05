@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <p>Thing</p>
+  </head>
+  <body>
+    <script>
+      var readDirFiles = require('read-dir-files');
+
+      var file_names = readDirFiles.list('../lecture_data', function (err, filenames) {
+        if (err) return console.dir(err);
+        console.dir(filenames);
+      });
+
+      console.log(file_names);
+
+
+      function formatSlideJSON (text,timestamp)
+      {
+        var lines = text['regions'][0]['lines'];
+        var wordString = '';
+
+        for (var i=0; i<lines.length; i++)
+        {
+          var sentence = lines[i]['words'];
+
+          for (var j=0; j<sentence.length; j++)
+          {
+            wordString += sentence[j]['text'] + ' ';
+          }
+        }
+        var returnJSON = {
+          "time":	timestamp,
+          regions:		wordString
+        };
+
+        return returnJSON;
+      }
+
+    </script>
+  </body>
+<html>
