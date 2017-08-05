@@ -18,6 +18,28 @@ const thumbnailStyle = {
   textAlign: 'center'
 }
 
+const slideTagStyle = {
+  padding: '1px 5px',
+  backgroundColor: '#dbffa0',
+  marginLeft: 8,
+  color: '#000',
+  fontWeight: 'normal',
+  borderRadius: 10,
+  fontSize: 10,
+  float: 'right'
+}
+
+const slideAudioStyle = {
+  padding: '1px 5px',
+  backgroundColor: '#ffbb00',
+  marginLeft: 8,
+  color: '#000',
+  fontWeight: 'normal',
+  borderRadius: 10,
+  fontSize: 10,
+  float: 'right'
+}
+
 class VideoRow extends Component {
   constructor(props) {
     super(props);
@@ -115,7 +137,11 @@ class VideoRow extends Component {
         <Grid style={gridStyle} fluid>
           <Row style={rowStyle}>
             <Col xs={8}>
-              <div style={boldFont}>Lecture {mappings2[this.props.id]}</div>
+              <div style={boldFont}>
+                Lecture {mappings2[this.props.id]}
+                {this.props.source == 'slide' && <span style={slideTagStyle}>Slide</span>}
+                {this.props.source == 'audio' && <span style={slideAudioStyle}>Audio</span>}
+              </div>
               <div dangerouslySetInnerHTML={{ __html: context }}></div>
 
             </Col>

@@ -14,7 +14,7 @@ const WrapperHome = styled.section`
   max-height: 700px;
   margin-left: 219px;
   font-size: 12px;
-  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.49);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.49);
 `;
 
 const WrapperVideo = styled.section`
@@ -29,7 +29,7 @@ const WrapperVideo = styled.section`
   overflow-x: hidden;
   max-height: 700px;
   font-size: 12px;
-  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.49);
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.49);
 `;
 
 const divStyle = {
@@ -61,7 +61,8 @@ class Dropdown extends Component {
               id={suggestion.id}
               context={suggestion._highlightResult.text.value}
               timestamp={suggestion.time}
-              page={this.props.page} />
+              page={this.props.page}
+              source={suggestion.source} />
           )}
         </WrapperHome>
       )
@@ -87,7 +88,8 @@ class Dropdown extends Component {
               id={suggestion.id}
               context={suggestion._highlightResult.text.value}
               timestamp={suggestion.time}
-              page={this.props.page} />
+              page={this.props.page}
+              source={suggestion.source} />
           )}
           <br />
           <div style={divStyle}><b>Related Lectures</b></div>
@@ -97,7 +99,8 @@ class Dropdown extends Component {
               id={suggestion.id}
               context={suggestion._highlightResult.text.value}
               timestamp={suggestion.time}
-              page={this.props.page} />
+              page={this.props.page}
+              source={suggestion.source} />
           )}
         </WrapperVideo>
       );
