@@ -41,6 +41,10 @@ const slideAudioStyle = {
   float: 'right'
 }
 
+const col8Style = {
+  fontSize: 15
+}
+
 class VideoRow extends Component {
   constructor(props) {
     super(props);

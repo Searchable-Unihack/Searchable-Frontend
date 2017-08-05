@@ -2,11 +2,11 @@
 
 ## Installation
 
-	$ npm install
+	$ yarn install
 
 ## Usage
 
-    $ gulp --watch
+    $ gulp watch
 
 ## Load extension in Chrome
 
