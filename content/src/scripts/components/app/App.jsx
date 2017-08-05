@@ -62,13 +62,18 @@ class App extends Component {
       return;
     }
 
-    this.setState({content: content.hits})
+    this.setState({ content: content.hits })
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    this.setState({showDropdown: true});
-    index.search(event.target.value, (err, content) => { this.updateContent(err, content) });
+    if (event.target.value == "") {
+      this.setState({ showDropdown: false });
+    }
+    else {
+      this.setState({ showDropdown: true });
+      index.search(event.target.value, (err, content) => { this.updateContent(err, content) });
+    }
   }
 
   handleSubmit(event) {
@@ -76,19 +81,19 @@ class App extends Component {
   }
 
   componentDidMount() {
-		var timeToSkipTo = localStorage.getItem('time');
-		localStorage.removeItem('time');
-		if (timeToSkipTo) {
-			this.skipToTime(timeToSkipTo);
-		}
+    var timeToSkipTo = localStorage.getItem('time');
+    localStorage.removeItem('time');
+    if (timeToSkipTo) {
+      this.skipToTime(timeToSkipTo);
+    }
   }
-	skipToTime(time) {
-		document.getElementsByTagName('video')[0].currentTime = time;
-		if (document.getElementsByTagName('video')[1])  document.getElementsByTagName('video')[1].currentTime = time;
-		const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
-		progressbar.style = "width:" + time/33.6 + "%";
-		document.getElementsByClassName('currTime')[0].innerText = Math.floor(time/60) + ":" + Math.floor(time % 60)+" / 55:59";
-	}
+  skipToTime(time) {
+    document.getElementsByTagName('video')[0].currentTime = time;
+    if (document.getElementsByTagName('video')[1]) document.getElementsByTagName('video')[1].currentTime = time;
+    const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
+    progressbar.style = "width:" + time / 33.6 + "%";
+    document.getElementsByClassName('currTime')[0].innerText = Math.floor(time / 60) + ":" + Math.floor(time % 60) + " / 55:59";
+  }
 
   render() {
     if (this.props.page == "home") {
@@ -99,7 +104,7 @@ class App extends Component {
               <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
             </label>
-            { this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} /> }
+            {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
           </form>
         </div>
       );
@@ -111,8 +116,8 @@ class App extends Component {
               <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
             </label>
-            { this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} /> }
-            
+            {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
+
           </form>
         </div>
       );
