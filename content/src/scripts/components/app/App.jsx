@@ -72,9 +72,7 @@ class App extends Component {
     localStorage.removeItem('time');
     if (timeToSkipTo) {
       this.skipToTime(timeToSkipTo);
-      setTimeout(this.skipToTime(timeToSkipTo), 500);
-      setTimeout(this.skipToTime(timeToSkipTo), 1000);
-      setTimeout(this.skipToTime(timeToSkipTo), 3000);
+      setTimeout(() => {this.skipToTime(timeToSkipTo)}, 1000);
     }
   }
   skipToTime(time) {
