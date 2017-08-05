@@ -4,18 +4,18 @@ import styled from 'styled-components';
 
 const WrapperHome = styled.section`
 	padding: 5px;
-  background: white;
+  background: #eef1f5;
   position: fixed;
   z-index: 100;
   margin-left: 6px;
-  width: 400px;
-  border: 0.01em solid black;
+  width: 402px;
   margin-top: -7px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 700px;
-  margin-left: 220px;
+  margin-left: 219px;
   font-size: 12px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.49);
 `;
 
 const WrapperVideo = styled.section`
@@ -25,12 +25,12 @@ const WrapperVideo = styled.section`
   z-index: 100;
   margin-left: 6px;
   width: 348px;
-  border: 0.01em solid black;
   margin-top: -8px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 700px;
   font-size: 12px;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.49);
 `;
 
 const divStyle = {

@@ -14,6 +14,10 @@ const mappings2 = {
   "5dc1b12e-bbeb-4565-831b-9d7da8ad2141":4
 }
 
+const thumbnailStyle = {
+  textAlign: 'center'
+}
+
 class VideoRow extends Component {
   constructor(props) {
     super(props);
@@ -74,24 +78,27 @@ class VideoRow extends Component {
     }
 
     const imgStyle = {
-      width: '90%',
+      width: '100%',
       float: 'right'
     }
     const gridStyle = {
       padding: '0'
     }
     const rowStyle = {
-      padding: '5px 0'
+      padding: '5px 0',
+      cursor: 'pointer'
     }
     const boldFont = {
       fontWeight: 'bold'
     }
     const timeFont = {
       fontStyle: 'italic',
-      textDecorationLine: 'underline'
+      textDecorationLine: 'underline',
+      paddingTop: 40
     }
     
-    var context = this.props.context.replace("<em>", '<em style="background-color: #FFFF00">')
+    var context = this.props.context.replace("<em>", '<em style="background-color: #00aee4; color: white; border-radius: 3px; padding: 1px;">');
+    context = "..." + context.substring(0,300) + "...";
     
     return (
       <div onClick={this.skipOrJump}>
@@ -100,12 +107,15 @@ class VideoRow extends Component {
             <Col xs={8}>
               <div style={boldFont}>Lecture {mappings2[this.props.id]}</div>
               <div dangerouslySetInnerHTML={{__html: context}}></div>
-              <span style={timeFont}>
-                {mins + ":" + secs} mins
-              </span>
+             
             </Col>
             <Col xs={4}>
-              <div><img style={imgStyle} src={thumbnailUrl} /></div>
+              <div style={thumbnailStyle}>
+                <img style={imgStyle} src={thumbnailUrl} />
+                <br /><br />
+                <div style={timeFont}> {mins + ":" + secs} mins </div>
+              </div>
+               
             </Col>
           </Row>
         </Grid>
