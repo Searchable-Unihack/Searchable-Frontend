@@ -99,7 +99,7 @@ class App extends Component {
     if (this.props.page == "home") {
       return (
         <div>
-          <form autocomplete="off" onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <label>
               <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
@@ -111,7 +111,7 @@ class App extends Component {
     } else if (this.props.page == "video") {
       return (
         <div>
-          <form autocomplete="off" onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit}>
             <label>
               <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
 
