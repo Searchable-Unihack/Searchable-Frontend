@@ -47,7 +47,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { value: '', content: '' };
-    //this.content = '';
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateContent = this.updateContent.bind(this);
@@ -60,12 +59,11 @@ class App extends Component {
     }
 
     this.setState({content: content.hits})
-    //this.content = content;
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});    
+    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});
   }
 
   handleSubmit(event) {
@@ -73,7 +71,21 @@ class App extends Component {
   }
 
   componentDidMount() {
+		console.log('dointin');
+		var timeToSkipTo = localStorage.getItem('time');
+		localStorage.removeItem('time');
+		if (timeToSkipTo) {
+			console.log(timeToSkipTo)
+			this.skipToTime(timeToSkipTo);
+		}
   }
+	skipToTime(time) {
+		document.getElementsByTagName('video')[0].currentTime = time;
+		if (document.getElementsByTagName('video')[1])  document.getElementsByTagName('video')[1].currentTime = time;
+		const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
+		progressbar.style = "width:" + time/33.6 + "%";
+		document.getElementsByClassName('currTime')[0].innerText = Math.floor(time/60) + ":" + Math.floor(time % 60)+" / 55:59";
+	}
 
   render() {
     if (this.props.page == "home") {
@@ -81,11 +93,8 @@ class App extends Component {
         <div>
           <form autocomplete="off" onSubmit={this.handleSubmit}>
             <label>
-              {/* <Title>
-                Searchable
-              </Title> */}
               <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-            
+
             </label>
             <Dropdown content={this.state.content} page={this.props.page} />
           </form>
@@ -96,11 +105,8 @@ class App extends Component {
         <div>
           <form autocomplete="off" onSubmit={this.handleSubmit}>
             <label>
-              {/* <Title>
-                Searchable
-              </Title> */}
               <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-            
+
             </label>
             <Dropdown content={this.state.content} page={this.props.page} />
           </form>

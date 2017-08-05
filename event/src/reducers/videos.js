@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_VIDEO':
+    case 'z':
       return {
         ...state,
         [action.payload.series]: [...state[action.payload.series], action.payload.video]
