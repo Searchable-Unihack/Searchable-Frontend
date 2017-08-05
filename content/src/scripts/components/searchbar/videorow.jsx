@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-flexbox-grid';
+import Style from 'style-it';
 
 const mappings = {
   "3043092d-83bf-47ca-8466-586af288e869": "https://echo360.org.au/lesson/G_6a461fe2-67cb-454e-afff-24ffc3851a8f_d69a95c6-bd24-4bec-9dfb-8f7aa0477be6_2017-07-24T16:04:00.000_2017-07-24T17:00:00.000/classroom#sortDirection=desc",
@@ -134,27 +135,37 @@ class VideoRow extends Component {
 
     return (
       <div onClick={this.skipOrJump}>
-        <Grid style={gridStyle} fluid>
-          <Row style={rowStyle}>
-            <Col xs={8}>
-              <div style={boldFont}>
-                Lecture {mappings2[this.props.id]}
-                {this.props.source == 'slide' && <span style={slideTagStyle}>Slide</span>}
-                {this.props.source == 'audio' && <span style={slideAudioStyle}>Audio</span>}
-              </div>
-              <div dangerouslySetInnerHTML={{ __html: context }}></div>
+        <Style>
+          {`
+            .div-hover {
+              
+            }
+            .div-hover:hover, .div-hover:active, .div-hover.active, .div-hover.disabled, .div-hover[disabled] {
+              background-color: #c3e6f4;
+              background-position: 0 -15px;
+            }
+          `}
+          <Grid className="div-hover" style={gridStyle} fluid>
+            <Row style={rowStyle}>
+              <Col xs={8}>
+                <div style={boldFont}>
+                  Lecture {mappings2[this.props.id]}
+                  {this.props.source == 'slide' && <span style={slideTagStyle}>Slide</span>}
+                  {this.props.source == 'audio' && <span style={slideAudioStyle}>Audio</span>}
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: context }}></div>
 
-            </Col>
-            <Col xs={4}>
-              <div style={thumbnailStyle}>
-                <img style={imgStyle} src={thumbnailUrl} />
-                <br /><br />
-                <div style={timeFont}> {mins + ":" + secs} mins </div>
-              </div>
-
-            </Col>
-          </Row>
-        </Grid>
+              </Col>
+              <Col xs={4}>
+                <div style={thumbnailStyle}>
+                  <img style={imgStyle} src={thumbnailUrl} />
+                  <br /><br />
+                  <div style={timeFont}> {mins + ":" + secs} mins </div>
+                </div>
+              </Col>
+            </Row>
+          </Grid>
+        </Style>
       </div>
     );
   }
