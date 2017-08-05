@@ -53,6 +53,15 @@ class VideoRow extends Component {
 
   render() {
     var thumbnailUrl;
+    var mins = Math.floor(this.props.timestamp/60);
+    var secs = Math.floor(this.props.timestamp % 60);
+    if (mins < 10) {
+      mins = ('0' + mins).slice(-2)
+    }
+    if (secs < 10) {
+      secs = secs + '0'
+    }
+
     if (this.props.page == 'video') {
       thumbnailUrl = document.getElementsByTagName('video')[0].src.split("hd1")[0] + "thumbnails1/" + Math.round(this.props.timestamp/60) * 60 + ".jpg";
     } else if (this.props.page == 'home') {
@@ -65,7 +74,7 @@ class VideoRow extends Component {
     }
 
     const imgStyle = {
-      width: '75%',
+      width: '90%',
       float: 'right'
     }
     const gridStyle = {
@@ -74,14 +83,26 @@ class VideoRow extends Component {
     const rowStyle = {
       padding: '5px 0'
     }
+    const boldFont = {
+      fontWeight: 'bold'
+    }
+    const timeFont = {
+      fontStyle: 'italic',
+      textDecorationLine: 'underline'
+    }
+    
+    var context = this.props.context.replace("<em>", '<em style="background-color: #FFFF00">')
+    
     return (
       <div onClick={this.skipOrJump}>
         <Grid style={gridStyle} fluid>
           <Row style={rowStyle}>
             <Col xs={8}>
-              <div>Lecture {mappings2[this.props.id]}</div>
-              <div dangerouslySetInnerHTML={{__html: this.props.context}}></div>
-              <span>{this.props.timestamp}</span>
+              <div style={boldFont}>Lecture {mappings2[this.props.id]}</div>
+              <div dangerouslySetInnerHTML={{__html: context}}></div>
+              <span style={timeFont}>
+                {mins + ":" + secs} mins
+              </span>
             </Col>
             <Col xs={4}>
               <div><img style={imgStyle} src={thumbnailUrl} /></div>

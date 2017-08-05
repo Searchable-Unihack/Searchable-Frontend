@@ -15,6 +15,7 @@ const WrapperHome = styled.section`
   overflow-x: hidden;
   max-height: 700px;
   margin-left: 220px;
+  font-size: 12px;
 `;
 
 const WrapperVideo = styled.section`
@@ -23,12 +24,13 @@ const WrapperVideo = styled.section`
   position: fixed;
   z-index: 100;
   margin-left: 6px;
-  width: 350px;
+  width: 348px;
   border: 0.01em solid black;
   margin-top: -8px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 700px;
+  font-size: 12px;
 `;
 
 const divStyle = {
