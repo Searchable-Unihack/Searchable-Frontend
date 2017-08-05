@@ -29,10 +29,10 @@ const Input1 = styled.input`
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
 	border: none;
   border-radius: 3px;
-  margin-top: 25px;
+  margin-top: 10px;
 `;
 
-const Input2 = styled.input`
+var Input2 = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: "Proxima Nova";
   font-size: 14px;
@@ -45,6 +45,8 @@ const Input2 = styled.input`
   margin-top: 25px;
   width: 200%;
 `;
+
+
 
 class App extends Component {
   constructor(props) {
@@ -62,13 +64,13 @@ class App extends Component {
       return;
     }
 
-    this.setState({content: content.hits})
+    this.setState({ content: content.hits })
     //this.content = content;
   }
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});    
+    index.search(event.target.value, (err, content) => { this.updateContent(err, content) });
   }
 
   handleSubmit(event) {
@@ -80,7 +82,7 @@ class App extends Component {
 
   render() {
     if (this.props.page == "home") {
-      return(
+      return (
         <div>
           <form autocomplete="off" onSubmit={this.handleSubmit}>
             <label>
@@ -88,14 +90,14 @@ class App extends Component {
                 Searchable
               </Title> */}
               <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-            
+
             </label>
             <Dropdown content={this.state.content} page={this.props.page} />
           </form>
         </div>
       );
     } else if (this.props.page == "video") {
-      return(
+      return (
         <div>
           <form autocomplete="off" onSubmit={this.handleSubmit}>
             <label>
@@ -103,7 +105,7 @@ class App extends Component {
                 Searchable
               </Title> */}
               <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-            
+
             </label>
             <Dropdown content={this.state.content} page={this.props.page} />
           </form>

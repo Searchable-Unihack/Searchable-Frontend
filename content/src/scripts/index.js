@@ -1,14 +1,16 @@
 import React from 'react';
-import {render} from 'react-dom';
-import {Provider} from 'react-redux';
-import {Store} from 'react-chrome-redux';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { Store } from 'react-chrome-redux';
 // import algoliasearch from 'algoliasearch';
 
 import App from './components/app/App';
 
-const proxyStore = new Store({portName: 'example'});
+const proxyStore = new Store({ portName: 'example' });
 
-document.getElementsByClassName('courseName')[0].style.display = 'none';
+if (document.getElementsByClassName('courseName').length > 0) {
+  document.getElementsByClassName('courseName')[0].style.display = 'none';
+}
 const anchor = document.createElement('div');
 anchor.id = 'rcr-anchor';
 
@@ -23,7 +25,7 @@ function checkDOM() {
     clearInterval(pollDom);
     render(
       <Provider store={proxyStore}>
-        <App page="home"/>
+        <App page="home" />
       </Provider>
       , document.getElementById('rcr-anchor'));
   }
@@ -32,7 +34,7 @@ function checkDOM() {
     clearInterval(pollDom);
     render(
       <Provider store={proxyStore}>
-        <App page="video"/>
+        <App page="video" />
       </Provider>
       , document.getElementById('rcr-anchor'));
   }
