@@ -7,10 +7,14 @@ const WrapperHome = styled.section`
   background: white;
   position: fixed;
   z-index: 100;
-  margin-left: 220px;
+  margin-left: 6px;
   width: 400px;
   border: 0.01em solid black;
   margin-top: -7px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 700px;
+  margin-left: 220px;
 `;
 
 const WrapperVideo = styled.section`
@@ -22,6 +26,9 @@ const WrapperVideo = styled.section`
   width: 350px;
   border: 0.01em solid black;
   margin-top: -8px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 700px;
 `;
 
 const divStyle = {
