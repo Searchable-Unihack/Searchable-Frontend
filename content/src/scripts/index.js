@@ -22,7 +22,7 @@ function checkDOM() {
     clearInterval(pollDom);
     render(
       <Provider store={proxyStore}>
-        <App/>
+        <App page="home"/>
       </Provider>
       , document.getElementById('rcr-anchor'));
   }
@@ -31,7 +31,7 @@ function checkDOM() {
     clearInterval(pollDom);
     render(
       <Provider store={proxyStore}>
-        <App/>
+        <App page="video"/>
       </Provider>
       , document.getElementById('rcr-anchor'));
   }

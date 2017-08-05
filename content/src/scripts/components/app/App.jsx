@@ -18,12 +18,24 @@ const Title = styled.h1`
   -webkit-text-stroke-color: black;
 `;
 
-const Input = styled.input`
+const Input1 = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: 'Bree Serif', serif;
   font-size: 14px;
   padding: 0.5em;
   padding-right: 20em;
+	margin: 0.5em;
+	color: black;
+  background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
+	border: none;
+	border-radius: 3px;
+`;
+
+const Input2 = styled.input`
+  @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+  font-family: 'Bree Serif', serif;
+  font-size: 14px;
+  padding: 0.5em;
 	margin: 0.5em;
 	color: black;
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
@@ -64,21 +76,37 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <form autocomplete="off" onSubmit={this.handleSubmit}>
-          <label>
-            {/* <Title>
-              Searchable
-            </Title> */}
-
-            <Input placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-           
-          </label>
-          <Dropdown content={this.state.content} />
-        </form>
-      </div>
-    );
+    if (this.props.page == "home") {
+      return(
+        <div>
+          <form autocomplete="off" onSubmit={this.handleSubmit}>
+            <label>
+              {/* <Title>
+                Searchable
+              </Title> */}
+              <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+            
+            </label>
+            <Dropdown content={this.state.content} page={this.props.page} />
+          </form>
+        </div>
+      );
+    } else if (this.props.page == "video") {
+      return(
+        <div>
+          <form autocomplete="off" onSubmit={this.handleSubmit}>
+            <label>
+              {/* <Title>
+                Searchable
+              </Title> */}
+              <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
+            
+            </label>
+            <Dropdown content={this.state.content} page={this.props.page} />
+          </form>
+        </div>
+      );
+    }
   }
 }
 

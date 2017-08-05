@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import VideoRow from './videorow';
 import styled from 'styled-components';
 
-const Wrapper = styled.section`
+const Wrapper1 = styled.section`
 	padding: 0.5em;
   background: white;
   position: relative;
@@ -13,9 +13,21 @@ const Wrapper = styled.section`
   border: 0.01em solid black;
 `;
 
+const Wrapper2 = styled.section`
+	padding: 0.5em;
+  background: white;
+  position: relative;
+  z-index: 100;
+  margin-left: 0.4em;
+  width: 9em;
+  border: 0.01em solid black;
+`;
+
 class Dropdown extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
+    this.props.page;
     this.state = {videos: [
       {timestamp: 10.10, 'context': 'this is some context'},
       {timestamp: 2000.30, 'context': 'this is another context'}
@@ -32,19 +44,30 @@ class Dropdown extends Component {
     else {
       content = [];
     }
-    return (
-      <div>
-        <Wrapper>
-        {content.map((suggestion, index) =>
-         // Correct! Key should be specified inside the array.
-         <VideoRow key={index.toString()}
-                   context={suggestion._highlightResult.alternatives[0].transcript.value}
-                   timestamp={suggestion.alternatives[0].timestamps[0][1]} />
-       )}
 
-      </Wrapper>
-      </div>
-    );
+    if (this.props.page == "home") {
+      return(
+        <Wrapper1>
+              {content.map((suggestion, index) =>
+              // Correct! Key should be specified inside the array.
+              <VideoRow key={index.toString()}
+                        context={suggestion._highlightResult.alternatives[0].transcript.value}
+                        timestamp={suggestion.alternatives[0].timestamps[0][1]} />
+            )}
+        </Wrapper1>
+      )
+    } else if (this.props.page == "video") {
+      return (
+        <Wrapper2>
+          {content.map((suggestion, index) =>
+          // Correct! Key should be specified inside the array.
+          <VideoRow key={index.toString()}
+                    context={suggestion._highlightResult.alternatives[0].transcript.value}
+                    timestamp={suggestion.alternatives[0].timestamps[0][1]} />
+        )}
+        </Wrapper2>
+      );
+    }
   }
 }
 
