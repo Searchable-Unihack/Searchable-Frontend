@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import VideoRow from './videorow';
 import styled from 'styled-components';
 
@@ -7,7 +7,6 @@ const WrapperHome = styled.section`
   background: #eef1f5;
   position: fixed;
   z-index: 100;
-  margin-left: 6px;
   width: 402px;
   margin-top: -7px;
   overflow-y: auto;
@@ -20,12 +19,12 @@ const WrapperHome = styled.section`
 
 const WrapperVideo = styled.section`
 	padding: 5px;
-  background: white;
+  background: #eef1f5;
   position: fixed;
   z-index: 100;
-  margin-left: 6px;
-  width: 348px;
+  width: 398px;
   margin-top: -8px;
+  margin-left: 8px;
   overflow-y: auto;
   overflow-x: hidden;
   max-height: 700px;
@@ -43,7 +42,7 @@ class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.props.page;
-   }
+  }
 
 
   render() {
@@ -55,15 +54,15 @@ class Dropdown extends Component {
       else {
         contentAllLectures = [];
       }
-      return(
+      return (
         <WrapperHome>
-              {contentAllLectures.map((suggestion, index) =>
-              <VideoRow key={index.toString()}
-                        id={suggestion.id}
-                        context={suggestion._highlightResult.text.value}
-                        timestamp={suggestion.time}
-                        page={this.props.page}/>
-            )}
+          {contentAllLectures.map((suggestion, index) =>
+            <VideoRow key={index.toString()}
+              id={suggestion.id}
+              context={suggestion._highlightResult.text.value}
+              timestamp={suggestion.time}
+              page={this.props.page} />
+          )}
         </WrapperHome>
       )
     } else if (this.props.page == "video") {
@@ -84,22 +83,22 @@ class Dropdown extends Component {
       return (
         <WrapperVideo>
           {contentCurrentLecture.map((suggestion, index) =>
-          <VideoRow key={index.toString()}
-                    id={suggestion.id}
-                    context={suggestion._highlightResult.text.value}
-                    timestamp={suggestion.time}
-                    page={this.props.page}/>
-        )}
-        <br />
-        <div style={divStyle}><b>Related Lectures</b></div>
+            <VideoRow key={index.toString()}
+              id={suggestion.id}
+              context={suggestion._highlightResult.text.value}
+              timestamp={suggestion.time}
+              page={this.props.page} />
+          )}
+          <br />
+          <div style={divStyle}><b>Related Lectures</b></div>
 
-        {contentAllLectures.map((suggestion, index) =>
-        <VideoRow key={index.toString()}
-                  id={suggestion.id}
-                  context={suggestion._highlightResult.text.value}
-                  timestamp={suggestion.time}
-                  page={this.props.page}/>
-      )}
+          {contentAllLectures.map((suggestion, index) =>
+            <VideoRow key={index.toString()}
+              id={suggestion.id}
+              context={suggestion._highlightResult.text.value}
+              timestamp={suggestion.time}
+              page={this.props.page} />
+          )}
         </WrapperVideo>
       );
     }
