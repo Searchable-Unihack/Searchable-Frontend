@@ -15,7 +15,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://echo360.org.au/home"],
+      "matches": ["https://echo360.org.au/*"],
       "css": [],
       "js": ["content.js"]
     }

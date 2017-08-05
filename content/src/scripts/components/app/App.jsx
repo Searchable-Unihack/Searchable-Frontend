@@ -46,10 +46,10 @@ class App extends Component {
       <div>
         <form autocomplete="off" onSubmit={this.handleSubmit}>
           <label>
-            <Title>
+            {/* <Title>
               Searchable
-            </Title>
-            
+            </Title> */}
+
             <Input placeholder="@mxstbr" type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
           </label>
           <Dropdown/>

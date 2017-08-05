@@ -12,6 +12,8 @@ class VideoRow extends Component {
     console.log('waws called')
     document.getElementsByTagName('video')[0].currentTime = this.props.video.timestamp;
     document.getElementsByTagName('video')[1].currentTime = this.props.video.timestamp;
+    const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
+    progressbar.style = "width:" + this.props.video.timestamp/33.6 + "%";
   }
 
   render() {
