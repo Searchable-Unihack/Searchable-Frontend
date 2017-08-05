@@ -23,7 +23,7 @@ function checkDOM() {
       <App page="home" />
       , document.getElementById('rcr-anchor'));
   }
-  else if (document.getElementsByClassName('classroomNav') && document.getElementsByClassName('classroomNav')[0].getElementsByClassName('left')[0]) {
+  else if (document.getElementsByClassName('classroomNav')[0] && document.getElementsByClassName('classroomNav')[0].getElementsByClassName('left')[0]) {
     document.getElementsByClassName('classroomNav')[0].getElementsByClassName('left')[0].appendChild(anchor);
     clearInterval(pollDom);
     render(
