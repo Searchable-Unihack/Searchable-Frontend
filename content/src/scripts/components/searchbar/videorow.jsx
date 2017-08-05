@@ -4,17 +4,19 @@ import {connect} from 'react-redux';
 class VideoRow extends Component {
   constructor(props) {
     super(props);
-    console.log(props)
+    console.log(props.video.timestamp);
+    this.skipToTime = this.skipToTime.bind(this);
    }
 
   skipToTime() {
-    document.getElementsByTagName('video')[0].currentTime = this.state.value;
-    document.getElementsByTagName('video')[1].currentTime = this.state.value;
+    console.log('waws called')
+    document.getElementsByTagName('video')[0].currentTime = this.props.video.timestamp;
+    document.getElementsByTagName('video')[1].currentTime = this.props.video.timestamp;
   }
 
   render() {
     return (
-      <div>
+      <div onClick={this.skipToTime}>
         <div>{this.props.video.timestamp}</div>
         <div>{this.props.video.context}</div>
       </div>
