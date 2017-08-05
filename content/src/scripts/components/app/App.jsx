@@ -9,14 +9,19 @@ const Title = styled.h1`
   background: -webkit-linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 0.15px;
+  -webkit-text-stroke-color: black;
 `;
 
 const Input = styled.input`
-  padding: 1em;
+  @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
+  font-family: 'Bree Serif', serif;
+  font-size: 14px;
+  padding: 0.5em;
   padding-right: 20em;
 	margin: 0.5em;
-	color: palevioletred;
-	background: papayawhip;
+	color: black;
+  background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
 	border: none;
 	border-radius: 3px;
 `;
@@ -50,7 +55,7 @@ class App extends Component {
               Searchable
             </Title> */}
 
-            <Input placeholder="@mxstbr" type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
+            <Input placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
           </label>
           <Dropdown/>
         </form>

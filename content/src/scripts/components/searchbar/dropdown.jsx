@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import VideoRow from './videorow'
+import VideoRow from './videorow';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+	padding: 0.5em;
+  background: white;
+  position: relative;
+  z-index: 100;
+  margin-left: 19em;
+  width: 35em;
+  border: 0.01em solid black;
+`;
+
 class Dropdown extends Component {
   constructor(props) {
     super(props);
@@ -18,20 +30,15 @@ class Dropdown extends Component {
 
 
   render() {
-    const divStyle = {
-      position: 'absolute',
-      display: 'float',
-      backgroundColor: 'white',
-      zIndex: 100
-    };
     var videos = this.state.videos;
     return (
-      <div style={divStyle}>
-        {videos.map((video, index) =>
-         // Correct! Key should be specified inside the array.
-         <VideoRow key={index.toString()}
-                   video={video} />
-       )}
+      <div>
+        <Wrapper>
+          {videos.map((video, index) =>
+            // Correct! Key should be specified inside the array.
+            <VideoRow key={index.toString()} video={video} />
+          )}
+        </Wrapper>
       </div>
     );
   }
