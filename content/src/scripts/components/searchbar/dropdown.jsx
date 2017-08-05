@@ -1,6 +1,18 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import VideoRow from './videorow'
+import VideoRow from './videorow';
+import styled from 'styled-components';
+
+const Wrapper = styled.section`
+	padding: 0.5em;
+  background: white;
+  position: relative;
+  z-index: 100;
+  margin-left: 19em;
+  width: 35em;
+  border: 0.01em solid black;
+`;
+
 class Dropdown extends Component {
   constructor(props) {
     super(props);
@@ -19,12 +31,7 @@ class Dropdown extends Component {
 
 
   render() {
-    const divStyle = {
-      position: 'absolute',
-      display: 'float',
-      backgroundColor: 'white',
-      zIndex: 100
-    };
+    
     console.log(this.props.content);
     var content;
     if (this.props.content) {
@@ -34,13 +41,16 @@ class Dropdown extends Component {
       content = [];
     }
     return (
-      <div style={divStyle}>
+      <div>
+        <Wrapper>
         {content.map((suggestion, index) =>
          // Correct! Key should be specified inside the array.
          <VideoRow key={index.toString()}
                    context={suggestion._highlightResult.alternatives[0].transcript.value}
                    timestamp={suggestion.alternatives[0].timestamps[0][1]} />
        )}
+
+      </Wrapper>
       </div>
     );
   }
