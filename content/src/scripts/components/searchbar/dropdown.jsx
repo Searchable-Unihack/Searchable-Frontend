@@ -16,7 +16,6 @@ const Wrapper = styled.section`
 class Dropdown extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.state = {videos: [
       {timestamp: 10.10, 'context': 'this is some context'},
       {timestamp: 2000.30, 'context': 'this is another context'}
@@ -25,14 +24,7 @@ class Dropdown extends Component {
    }
 
 
-  componentDidMount() {
-    console.log('yay it mounted')
-  }
-
-
-  render() {
-    
-    console.log(this.props.content);
+  render() {    
     var content;
     if (this.props.content) {
     content = this.props.content.slice(0, 5);

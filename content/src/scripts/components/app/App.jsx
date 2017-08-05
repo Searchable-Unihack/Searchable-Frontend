@@ -42,7 +42,6 @@ class App extends Component {
   }
 
   updateContent(err, content) {
-    // console.log(content);
     if (err) {
       console.error(err);
       return;
@@ -54,15 +53,7 @@ class App extends Component {
 
   handleChange(event) {
     this.setState({ value: event.target.value });
-    console.log(event.target.value);
-    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});
-
-
-      // for (var h in content.hits) {
-
-      //   console.log('Hit(' + content.hits[h].objectID + '): ' + JSON.stringify(content.hits[h]));
-      // }
-    
+    index.search(event.target.value, (err, content) => {this.updateContent(err, content)});    
   }
 
   handleSubmit(event) {
@@ -70,7 +61,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log('yay it mounted')
   }
 
   render() {
