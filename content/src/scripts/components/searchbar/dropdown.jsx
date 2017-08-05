@@ -7,7 +7,7 @@ const WrapperHome = styled.section`
   background: #eef1f5;
   position: fixed;
   z-index: 100;
-  width: 402px;
+  width: 503px;
   margin-top: -7px;
   overflow-y: auto;
   overflow-x: hidden;
@@ -22,7 +22,7 @@ const WrapperVideo = styled.section`
   background: #eef1f5;
   position: fixed;
   z-index: 100;
-  width: 398px;
+  width: 500px;
   margin-top: -8px;
   margin-left: 8px;
   overflow-y: auto;

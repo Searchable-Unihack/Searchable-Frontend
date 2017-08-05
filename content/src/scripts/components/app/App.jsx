@@ -11,7 +11,7 @@ const InputHome = styled.input`
   font-family: "Proxima Nova";
   font-size: 16px;
   padding: 6px;
-  width: 400px;
+  width: 500px;
 	margin: 9px;
 	color: black;
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
@@ -22,9 +22,9 @@ const InputHome = styled.input`
 var InputVideo = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: "Proxima Nova";
-  font-size: 14px;
-  padding: 4px;
-  width: 400px;
+  font-size: 16px;
+  padding: 6px;
+  width: 498px;
 	margin: 8px;
 	color: black;
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
