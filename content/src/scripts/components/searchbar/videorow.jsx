@@ -26,7 +26,7 @@ const slideTagStyle = {
   color: '#000',
   fontWeight: 'normal',
   borderRadius: 10,
-  fontSize: 10,
+  fontSize: 12,
   float: 'right'
 }
 
@@ -37,7 +37,7 @@ const slideAudioStyle = {
   color: '#000',
   fontWeight: 'normal',
   borderRadius: 10,
-  fontSize: 10,
+  fontSize: 12,
   float: 'right'
 }
 
@@ -142,7 +142,7 @@ class VideoRow extends Component {
         <Style>
           {`
             .div-hover {
-              
+
             }
             .div-hover:hover, .div-hover:active, .div-hover.active, .div-hover.disabled, .div-hover[disabled] {
               background-color: #c3e6f4;

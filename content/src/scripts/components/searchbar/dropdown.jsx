@@ -36,7 +36,7 @@ const divStyle = {
   fontWeight: 'bold',
   borderBottom: 'solid 1px #000',
   marginBottom: '8px',
-  fontSize: 18
+  fontSize: 20
 }
 
 class Dropdown extends Component {
