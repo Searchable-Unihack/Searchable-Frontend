@@ -27,8 +27,9 @@ index.search('regression', function searchDone(err, content) {
 
 const anchor = document.createElement('div');
 anchor.id = 'rcr-anchor';
-const searchBar = document.getElementsByClassName('classroomNav')[0].getElementsByClassName('left')[0];
-searchBar.appendChild(anchor);
+// const searchBar = document.getElementsByClassName('classroomNav')[0].getElementsByClassName('left')[0];
+// searchBar.appendChild(anchor);
+document.getElementsByClassName("home-header")[0].appendChild(anchor);
 
 render(
   <Provider store={proxyStore}>
