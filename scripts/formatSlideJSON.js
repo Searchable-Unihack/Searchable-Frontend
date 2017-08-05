@@ -4,14 +4,14 @@ var fs                  = require('fs')
 var file_list           = null;
 var lecture_slide_array = [];
 
-readDirFiles.list('../lecture_data/lecture-01', function (err, filenames) {
+readDirFiles.list('../lecture_data/lecture-04', function (err, filenames) {
   if (err) return console.dir(err);
   file_list = filenames;
 
   for (var i=1; i<file_list.length; i++)
   {
     file_list[i] = file_list[i].slice(27);
-    var text = fs.readFileSync("../lecture_data/lecture-01/" + file_list[i], 'utf8');
+    var text = fs.readFileSync("../lecture_data/lecture-04/" + file_list[i], 'utf8');
     var timestamp = Number(file_list[i].slice(12,-5)) * 60;
 
     var response = formatSlideJSON(JSON.parse(text),timestamp);
@@ -19,6 +19,19 @@ readDirFiles.list('../lecture_data/lecture-01', function (err, filenames) {
     if (response != 'nothing')
     {
       lecture_slide_array.push(response);
+    }
+  }
+  for (var i=1; i<lecture_slide_array.length; i++)
+  {
+    if (lecture_slide_array[i-1]['text'] == lecture_slide_array[i]['text'])
+    {
+      var index1;
+      var index2;
+
+      index1 = lecture_slide_array.splice(i, lecture_slide_array.length);
+      index2 = lecture_slide_array.splice(0, i-1);
+      lecture_slide_array  = index2.concat(index1);
+      i--;
     }
   }
   console.log(lecture_slide_array);
@@ -45,7 +58,7 @@ function formatSlideJSON (text,timestamp)
       "time":	    timestamp,
       "weight":   2,
       "source":   'slide',
-      "id":       "3043092d-83bf-47ca-8466-586af288e869",
+      "id":       "5dc1b12e-bbeb-4565-831b-9d7da8ad2141",
       "text":	    wordString
     };
     return returnJSON;
