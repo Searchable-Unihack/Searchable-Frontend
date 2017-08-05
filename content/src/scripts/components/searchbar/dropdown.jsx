@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 import VideoRow from './videorow';
 import styled from 'styled-components';
 
@@ -26,7 +25,6 @@ const Wrapper2 = styled.section`
 class Dropdown extends Component {
   constructor(props) {
     super(props);
-    console.log(props);
     this.props.page;
    }
 
