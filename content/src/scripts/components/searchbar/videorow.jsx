@@ -151,7 +151,7 @@ class VideoRow extends Component {
           `}
           <Grid className="div-hover" style={gridStyle} fluid>
             <Row style={rowStyle}>
-              <Col xs={8}>
+              <Col xs={8} style={col8Style}>
                 <div style={boldFont}>
                   Lecture {mappings2[this.props.id]}
                   {this.props.source == 'slide' && <span style={slideTagStyle}>Slide</span>}

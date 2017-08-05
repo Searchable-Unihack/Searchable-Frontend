@@ -35,7 +35,8 @@ const WrapperVideo = styled.section`
 const divStyle = {
   fontWeight: 'bold',
   borderBottom: 'solid 1px #000',
-  marginBottom: '8px'
+  marginBottom: '8px',
+  fontSize: 18
 }
 
 class Dropdown extends Component {
