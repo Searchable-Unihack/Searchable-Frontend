@@ -54,6 +54,7 @@ class App extends Component {
             
             <Input placeholder="@mxstbr" type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
           </label>
+          <Dropdown/>
         </form>
       </div>
     );
