@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import Dropdown from '../searchbar/dropdown'
 
 class App extends Component {
   constructor(props) {
@@ -28,13 +29,16 @@ class App extends Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Name:
-          <input type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+      <div>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            Name:
+            <input type="text" name="name" value={this.state.value} onChange={this.handleChange}/>
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+        <Dropdown/>
+      </div>
     );
   }
 }
