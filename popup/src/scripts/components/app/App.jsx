@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
 
 class App extends Component {
   constructor(props) {
@@ -9,16 +8,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        Click Count: {this.props.count}
+        Searchable :)
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    count: state.count
-  };
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
