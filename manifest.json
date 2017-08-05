@@ -13,9 +13,10 @@
     "default_title": "Searchable",
     "default_popup": "popup.html"
   },
-  "icons": { "16": "searchable.png",
+  "icons": { "16": "searchable16x16.png",
             "48": "searchable.png",
-            "128": "searchable.png" },
+            "128": "searchable128x128.png" },
+  "web_accessible_resources": ["/searchable*.png"],
   "content_scripts": [
     {
       "matches": ["https://echo360.org.au/*"],

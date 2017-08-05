@@ -46,7 +46,7 @@ gulp.task('popup-html', ['clean'], () => {
 });
 
 gulp.task('copy-icons', ['clean'], () => {
-   return gulp.src('searchable.png')
+   return gulp.src('searchable*.png')
    .pipe(gulp.dest('./build'))
 });
 
