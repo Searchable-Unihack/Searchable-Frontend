@@ -17,32 +17,30 @@ const Title = styled.h1`
   -webkit-text-stroke-color: black;
 `;
 
-const Input1 = styled.input`
+const InputHome = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: "Proxima Nova";
-  font-size: 14px;
-  padding: 0.5em;
-  padding-right: 20em;
-	margin: 0.5em;
+  font-size: 16px;
+  padding: 6px;
+  width: 400px;
+	margin: 8px;
 	color: black;
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
 	border: none;
   border-radius: 3px;
-  margin-top: 10px;
 `;
 
-var Input2 = styled.input`
+var InputVideo = styled.input`
   @import url('https://fonts.googleapis.com/css?family=Bree+Serif');
   font-family: "Proxima Nova";
   font-size: 14px;
-  padding: 0.5em;
-	margin: 0.5em;
+  padding: 4px;
+  width: 350px;
+	margin: 8px;
 	color: black;
   background: linear-gradient(to top, #e6e9f0 0%, #eef1f5 25%);
 	border: none;
   border-radius: 3px;
-  margin-top: 25px;
-  width: 200%;
 `;
 
 
@@ -101,8 +99,10 @@ class App extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-              <Input1 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-
+              {/* <Title>
+                Searchable
+              </Title> */}
+              <InputHome placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
             </label>
             {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
           </form>
@@ -113,8 +113,10 @@ class App extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-              <Input2 placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
-
+              {/* <Title>
+                Searchable
+              </Title> */}
+              <InputVideo placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
             </label>
             {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}
 

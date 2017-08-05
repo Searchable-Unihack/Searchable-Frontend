@@ -2,24 +2,26 @@ import React, {Component} from 'react';
 import VideoRow from './videorow';
 import styled from 'styled-components';
 
-const Wrapper1 = styled.section`
-	padding: 0.5em;
+const WrapperHome = styled.section`
+	padding: 5px;
   background: white;
-  position: relative;
+  position: fixed;
   z-index: 100;
-  margin-left: 19em;
-  width: 35em;
+  margin-left: 220px;
+  width: 400px;
   border: 0.01em solid black;
+  margin-top: -7px;
 `;
 
-const Wrapper2 = styled.section`
-	padding: 0.5em;
+const WrapperVideo = styled.section`
+	padding: 5px;
   background: white;
-  position: relative;
+  position: fixed;
   z-index: 100;
-  margin-left: 0.4em;
-  width: 9em;
+  margin-left: 6px;
+  width: 350px;
   border: 0.01em solid black;
+  margin-top: -8px;
 `;
 
 class Dropdown extends Component {
@@ -40,7 +42,7 @@ class Dropdown extends Component {
 
     if (this.props.page == "home") {
       return(
-        <Wrapper1>
+        <WrapperHome>
               {content.map((suggestion, index) =>
               <VideoRow key={index.toString()}
                         id={suggestion.id}
@@ -48,11 +50,11 @@ class Dropdown extends Component {
                         timestamp={suggestion.time}
                         page={this.props.page}/>
             )}
-        </Wrapper1>
+        </WrapperHome>
       )
     } else if (this.props.page == "video") {
       return (
-        <Wrapper2>
+        <WrapperVideo>
           {content.map((suggestion, index) =>
           <VideoRow key={index.toString()}
                     id={suggestion.id}
@@ -60,7 +62,7 @@ class Dropdown extends Component {
                     timestamp={suggestion.time}
                     page={this.props.page}/>
         )}
-        </Wrapper2>
+        </WrapperVideo>
       );
     }
   }

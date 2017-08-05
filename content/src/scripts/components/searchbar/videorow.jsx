@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import { Grid, Row, Col } from 'react-flexbox-grid';
 
 const mappings = {
   "3043092d-83bf-47ca-8466-586af288e869":"https://echo360.org.au/lesson/G_6a461fe2-67cb-454e-afff-24ffc3851a8f_d69a95c6-bd24-4bec-9dfb-8f7aa0477be6_2017-07-24T16:04:00.000_2017-07-24T17:00:00.000/classroom#sortDirection=desc",
@@ -12,7 +14,6 @@ const mappings2 = {
   "db528d36-d54c-4c91-8810-dc774394224b":3,
   "5dc1b12e-bbeb-4565-831b-9d7da8ad2141":4
 }
-
 
 class VideoRow extends Component {
   constructor(props) {
@@ -63,12 +64,31 @@ class VideoRow extends Component {
         }
       }
     }
+
+    const imgStyle = {
+      width: '75%',
+      float: 'right'
+    }
+    const gridStyle = {
+      padding: '0'
+    }
+    const rowStyle = {
+      padding: '5px 0'
+    }
     return (
       <div onClick={this.skipOrJump}>
-        <div>Lecture {mappings2[this.props.id]}</div>
-        <div>{this.props.timestamp}</div>
-        <div dangerouslySetInnerHTML={{__html: this.props.context}}></div>
-        <img src={thumbnailUrl} />
+        <Grid style={gridStyle} fluid>
+          <Row style={rowStyle}>
+            <Col xs={8}>
+              <div>Lecture {mappings2[this.props.id]}</div>
+              <div dangerouslySetInnerHTML={{__html: this.props.context}}></div>
+              <span>{this.props.timestamp}</span>
+            </Col>
+            <Col xs={4}>
+              <div><img style={imgStyle} src={thumbnailUrl} /></div>
+            </Col>
+          </Row>
+        </Grid>
       </div>
     );
   }
