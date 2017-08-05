@@ -72,9 +72,13 @@ class App extends Component {
     localStorage.removeItem('time');
     if (timeToSkipTo) {
       this.skipToTime(timeToSkipTo);
+      setTimeout(this.skipToTime(timeToSkipTo), 500);
+      setTimeout(this.skipToTime(timeToSkipTo), 1000);
+      setTimeout(this.skipToTime(timeToSkipTo), 3000);
     }
   }
   skipToTime(time) {
+    // console.log('skipping', time)
     document.getElementsByTagName('video')[0].currentTime = time;
     if (document.getElementsByTagName('video')[1]) document.getElementsByTagName('video')[1].currentTime = time;
     const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
