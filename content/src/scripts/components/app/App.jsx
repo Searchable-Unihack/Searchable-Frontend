@@ -109,7 +109,6 @@ class App extends Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-
               <InputVideo placeholder="Search something..." type="text" name="name" value={this.state.value} onChange={this.handleChange} />
             </label>
             {this.state.showDropdown && <Dropdown content={this.state.content} page={this.props.page} />}

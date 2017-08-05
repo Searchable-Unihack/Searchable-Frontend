@@ -54,13 +54,11 @@ class VideoRow extends Component {
   }
 
   skipOrJump() {
-    // this.jumpToVideo();
     if (this.props.page == 'home') {
       return this.jumpToVideo();
     } else if (this.props.page == 'video') {
       if (document.getElementsByTagName('video')[0].src.indexOf(this.props.id) != -1) {
         //Found it
-        console.log('skipping')
         return this.skipToTime();
       }
       else {
