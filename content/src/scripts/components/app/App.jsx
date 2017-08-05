@@ -6,7 +6,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {value: ''};
-    this.skipToTime = this.skipToTime.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
    }
@@ -17,16 +16,12 @@ class App extends Component {
 
    handleSubmit(event) {
      event.preventDefault();
-     this.skipToTime(this.state.value)
    }
 
   componentDidMount() {
     console.log('yay it mounted')
   }
-  skipToTime() {
-    document.getElementsByTagName('video')[0].currentTime = this.state.value;
-    document.getElementsByTagName('video')[1].currentTime = this.state.value;
-  }
+
   render() {
     return (
       <div>
