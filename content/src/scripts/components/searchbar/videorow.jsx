@@ -14,7 +14,7 @@ class VideoRow extends Component {
     document.getElementsByTagName('video')[0].currentTime = this.props.timestamp;
     document.getElementsByTagName('video')[1].currentTime = this.props.timestamp;
     const progressbar = document.getElementsByClassName('timeline')[0].getElementsByClassName('timeline-bg')[0].getElementsByClassName('progress')[0];
-    progressbar.style = "width:" + this.props.video.timestamp/33.6 + "%";
+    progressbar.style = "width:" + this.props.timestamp/33.6 + "%";
   }
 
   render() {
