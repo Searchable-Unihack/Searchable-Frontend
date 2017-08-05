@@ -8,6 +8,7 @@
   },
   "author": "Tyler Shaddix",
   "dependencies": {
+    "algoliasearch": "^3.24.3",
     "react": "^15.5.0",
     "react-chrome-redux": "0.0.7",
     "react-dom": "^15.5.0",
